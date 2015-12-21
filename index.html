@@ -3,15 +3,15 @@
 	<head>
 		<title>Math Drills</title>
 		<!-- Mobile -->
-		<meta name = "viewpoint" content="width=device-width,inital-scale=1.0">
+		<meta name = "viewport" content="width=device-width,inital-scale=1">
 		<link href = "css/bootstrap.min.css" rel = "stylesheet">
 		<link href = "css/styles.css" rel = "stylesheet">
 	</head>
 	<body>
-		<div class = "navbar navbar-inverse navbar-static-top">
+		<div class = "navbar navbar-inverse navbar-fixed-top">
 			<div class = "container">
 				<a href = "#" class = "navbar-brand">Math Drills</a>
-				<button class = "navbar-toggle" data-toggle = "collapse" data-target = .navHeaderCollapse>
+				<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 				 <span class = "icon-bar"></span>
 				 <span class = "icon-bar"></span>
 				 <span class = "icon-bar"></span>
@@ -19,11 +19,17 @@
 				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<!-- Mobile view with button click -->
 					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "#">Home</a></li>
+						<li class = "active"><a href = "#">Home</a></li>
 						<li><a href = "#">Login</a></li>
 						<li><a href = "#">Sign-up</a></li>
 					</ul>	
 				</div>
+			</div>
+		</div>
+		
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text">Math Drills</p>
 			</div>
 		</div>
 		<!-- <div = class = "navbar navbar-default navbar-static-top"></div> -->
