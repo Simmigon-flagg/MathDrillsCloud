@@ -21,6 +21,7 @@ var answer;
 var questionsRemaining;
 var placeValue;
 function MathDrills(){
+	document.getElementById("answerInput").focus();
 	 type = document.getElementsByName("mathTypemoptRadio");
 	var numberOfQuestions = document.getElementsByName("numberOfQuestionsOptRadio");
 	 placeValue = document.getElementsByName("placeValueOptRadio");
@@ -225,6 +226,7 @@ function MathDrills(){
 }// end of class MathDrills
 
 function testEnterAnswer(){
+	
 	answer = parseInt(document.getElementById("answerInput").value);
 	
 	if(answer != myArray[0][3]){
@@ -249,7 +251,8 @@ function testEnterAnswer(){
 
 
 function practiceEnterAnswer(){
-	answer = parseInt(document.getElementById("answerInput").value);
+
+        answer = parseInt(document.getElementById("answerInput").value);
 	
 	if(answer != myArray[0][3]){
 		
@@ -266,14 +269,34 @@ function practiceEnterAnswer(){
 		startPractice.shift();
 		document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
 		document.getElementById("answerInput").value = " ";
-	}//end of else
-	
-	
+		}//end of else
+	document.getElementById("answerInput").focus();
 }//end of practiceEnterAnswer method
 
-
-
-
+function keyCode(event) {
+    var x = event.keyCode;
+    if (x == 13) {
+        answer = parseInt(document.getElementById("answerInput").value);
+	document.getElementById("answerInput").focus();
+	
+	if(answer != myArray[0][3]){
+		
+		document.getElementById("answerInput").value = " ";
+		document.getElementById("confirmation").innerHTML =
+		"You got it wrong! Try again";
+	}//end of if now else
+	else{
+		//alert("You got it right!");
+		
+		document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
+		document.getElementById("confirmation").innerHTML =
+		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
+		startPractice.shift();
+		document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
+		document.getElementById("answerInput").value = " ";
+		}//end of else
+    }//end if 
+}//keyCode
 
 
 

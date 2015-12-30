@@ -4,30 +4,31 @@
 		<!-- This is added online -->
 		<title>Math Drills</title>
 		<!-- Mobile -->
-		<meta name = "viewport" content="width=device-width,initial-scale=1.0">
+		<meta name = "viewport" content="width=device-width,initial-scale= 1.0">
 		<link href = "css/bootstrap.min.css" rel = "stylesheet">
 		<link href = "css/styles.css" rel = "stylesheet">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	</head>
 	<body>
 		<div class = "navbar navbar-inverse navbar-fixed-top">
+		
 			<div class = "container">
-				<a href = "#" class = "navbar-brand">Math Drills</a>
-				<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-				 <span class = "icon-bar"></span>
-				 <span class = "icon-bar"></span>
-				 <span class = "icon-bar"></span>
+				<a href = "#" class = "navbar-brand ">Math Drills</a>
+				<button class = "navbar-toggle" data-toggle ="collapse" data-target =".navHeaderCollapse">
+					 <span class = "icon-bar"></span>
+					 <span class = "icon-bar"></span>
+					 <span class = "icon-bar"></span>
 				</button>
 				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<!-- Mobile view with button click -->
-					<nav>
-						<ul class = "nav navbar-nav navbar-right">
-							<li class = "active"><a href = "#">Learn</a></li>
-							<li><a href = "#">Practice</a></li>
-							<li><a href = "#">Test</a></li>
-						</ul>
-					</nav>	
-				</div>
+					<ul class = "nav navbar-nav navbar-right">
+					
+						<li class = "active"><a href = "#">Learn</a></li>
+						<li><a href = "#">Practice</a></li>
+						<li><a href = "#">Test</a></li>
+					
+					</ul>
+				</div> 
 			</div>
 		</div>
 		<!-- Question -->
@@ -36,50 +37,76 @@
 				<div class = "text-center">
 					
 					<h2>Choose the type of question?</h2>
-						<div class="container">
-							<label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Addition' checked="checked">Addition</label>
-							<label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Subtraction'>Subtraction</label>
-							<label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Multiplication'>Multiplication</label>
-							<label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Division'>Division</label>
-						</div>
+						<div class="table-responsive">          
+						  <table class="table table-bordered table-condensed ">
+							<tbody >
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Addition' checked="checked">Addition</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Subtraction'>Subtraction</label></td>
+							  </tr>
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Multiplication'>Multiplication</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Division'>Division</label></td>
+							  </tr>
+							</tbody>
+						  </table>
+						 </div>	
+						
 					<h2>How many questions?</h2>
+					
 						<div class="container">
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='5' checked="checked" >5</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='10'>10</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='15'>15</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='20'>20</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='25'>25</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='30'>30</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='35'>35</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='40'>40</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='45'>45</label>
-							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='50'>50</label>		
+						<div class="table-responsive">          
+						  <table class="table table-bordered table-condensed ">
+							<tbody >
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='5' checked="checked" >5</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='10'>10</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='15'>15</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='20'>20</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='25'>25</label></td>
+							  </tr>
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='30'>30</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='35'>35</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='40'>40</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='45'>45</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='50'>50</label></td>
+							  </tr>
+							</tbody>
+						  </table>
+						 </div>	
 						</div>
 						<h2>Chose the place values?</h2>
 						<div class="container">
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='1' checked="checked">1. 1 + 1</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='2'>2. 11 + 11</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='3'>3. 111 + 111</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='4'>4. Mix all place values</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='5'>5. Mix only 1 and 2</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='6'>6. Mix only 1 and 3</label>
-							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='7'>7. Mix only 2 and 3</label>
+						<div class="table-responsive">          
+						  <table class="table table-bordered table-condensed ">
+							<tbody >
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='1' checked="checked">1. 1 + 1</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='2'>2. 11 + 11</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='3'>3. 111 + 111</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='4'>4. Mix all place values</label></td>
+							  </tr>
+							  <tr>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='5'>5. Mix only 1 and 2</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='6'>6. Mix only 1 and 3</label></td>
+								<td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='7'>7. Mix only 2 and 3</label></td>
+							  </tr>
+							</tbody>
+						  </table>
+						 </div>		
 						</div>
 					<h5 id="theArrayOfQuestion"></h5>
-									
-					
-					
-				
-					<input class="btn btn-success btn-block" type="button" value="Start!" onclick="MathDrills()">
+					<input class="btn btn-success btn-block" type="button" value="Start!" onclick="MathDrills()" autofocus="autofocus">
 					<div>
 						<h5 id="remainingQuestion"></h5>
 						<h3 id="displayQuestion"></h3>
-						<h2 id="Questions"></h2>
-						<input class="form-control" id="answerInput" type="text">				
+						<h2 id="Questions"></h2>	
+						<input class="form-control" id="answerInput" type="text" onkeydown="keyCode(event)">				
 					</div>
 					<div>
 																									<!--TestMathDrills practiceEnterAnswer-->
-						<input class="btn btn-primary btn-block" type="button" value="Enter" onclick="practiceEnterAnswer()">
+						<input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer()" >
 			
 						<h2 id="confirmation"></h2>
 					</div>
