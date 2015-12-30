@@ -55,7 +55,7 @@
 							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='45'>45</label>
 							<label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='50'>50</label>		
 						</div>
-						<h2>Place values?</h2>
+						<h2>Chose the place values?</h2>
 						<div class="container">
 							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='1' checked="checked">1. 1 + 1</label>
 							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='2'>2. 11 + 11</label>
@@ -66,11 +66,23 @@
 							<label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='7'>7. Mix only 2 and 3</label>
 						</div>
 					<h5 id="theArrayOfQuestion"></h5>
-					<h6 id="Questions"></h6>				
-					<h3 id="displayAddQuestion"></h3>
-					<h5 id="remainingQuestion"></h5>
+									
+					
+					
 				
 					<input class="btn btn-success btn-block" type="button" value="Start!" onclick="MathDrills()">
+					<div>
+						<h5 id="remainingQuestion"></h5>
+						<h3 id="displayQuestion"></h3>
+						<h2 id="Questions"></h2>
+						<input class="form-control" id="answerInput" type="text">				
+					</div>
+					<div>
+																									<!--TestMathDrills practiceEnterAnswer-->
+						<input class="btn btn-primary btn-block" type="button" value="Enter" onclick="practiceEnterAnswer()">
+			
+						<h2 id="confirmation"></h2>
+					</div>
 				</div>
 			</div>
 		</div>

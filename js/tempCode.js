@@ -1,28 +1,34 @@
 function TestMathDrills(){
-	//alert($('input[name=mathTypemoptradio]:checked').val());
-	var type = document.getElementsByName("mathTypemoptradio");
-	var question = document.getElementsByName("numberOptRadio");
-	var pvalue = document.getElementsByName("placeValueOptRadio");
+		function makeArray(){
+		//alert(numberOfQuestions);
+	     myArray = new Array(1000);
+	    for(var i = 0; i < myArray.length; i++){
+		myArray[i] = new Array(4);
+    	}
+    	return myArray;
+	}
 	
-	 for(var i = 0; i < type.length; i++) {
-	   if(type[i].checked) {
-		  type =  type[i].value;//This line overwrites the global var
-			
-	   }//end of if
-	 }//end of typeloop
-	 for(var i = 0; i < question.length; i++) {
-	   if(question[i].checked) {
-		  question =  question[i].value;//This line overwrites the global var
-			
-	   }//end of if
-	 }//end of questionloop
-	 for(var i = 0; i < pvalue.length; i++) {
-	   if(pvalue[i].checked) {
-		  pvalue =  pvalue[i].value;//This line overwrites the global var
-			
-	  }//end of if
-	 }//end of pvalueloop
-	confirm(type);
-	confirm(question);
-	confirm(pvalue);
-}//end of function Question
+	    myArray = makeArray();
+		//alert(myArray);
+	for(var i = 0; i < myArray.length;i++){
+		for(var j = 0; j < myArray[0].length ; j++){
+                     myArray[i][j] = Math.floor(Math.random()*1000);
+						while(myArray[i][j] <= 10 ){
+							if(myArray[i][j] <= 10){
+								myArray[i][j] = Math.floor(Math.random()*100);
+							}else{
+								myArray[i][j] = Math.floor(Math.random()*1000);
+							}//end of else
+							
+						}//end of while loop
+		}
+	} 
+	for(var i = 0; i < myArray.length;i++){
+		for(var j = 0; j < myArray[0].length ; j++){
+                      document.write(myArray[i][j] + " | ");
+		}
+		 document.write("</br>");
+	} 
+	
+}//end of practiceEnterAnswer method
+
