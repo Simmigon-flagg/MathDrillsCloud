@@ -1,4 +1,6 @@
+body{
+    margin-bottom: 80px;
+}
 .btn {
-    padding-left: 20px;
-	padding-right: 80px;	
+   width: 200px;	
 }

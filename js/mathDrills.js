@@ -20,7 +20,7 @@ var myArray = [];
 var answer;
 var questionsRemaining;
 var placeValue;
-function MathDrills(){
+function MathDrills() {
 	document.getElementById("answerInput").focus();
 	 type = document.getElementsByName("mathTypemoptRadio");
 	var numberOfQuestions = document.getElementsByName("numberOfQuestionsOptRadio");
@@ -225,31 +225,6 @@ function MathDrills(){
  document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
 }// end of class MathDrills
 
-function testEnterAnswer(){
-	
-	answer = parseInt(document.getElementById("answerInput").value);
-	
-	if(answer != myArray[0][3]){
-		
-		document.getElementById("answerInput").value = " ";
-		document.getElementById("confirmation").innerHTML =
-		"You got it wrong! Try again";
-	}//end of if now else
-	else{
-		//alert("You got it right!");
-		
-		document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
-		document.getElementById("confirmation").innerHTML =
-		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
-		startPractice.shift();
-		document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
-		document.getElementById("answerInput").value = " ";
-	}//end of else
-	
-	
-}//end of testEnterAnswer method
-
-
 function practiceEnterAnswer(){
 
         answer = parseInt(document.getElementById("answerInput").value);
@@ -263,14 +238,21 @@ function practiceEnterAnswer(){
 	else{
 		//alert("You got it right!");
 		
-		document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
 		document.getElementById("confirmation").innerHTML =
 		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
 		startPractice.shift();
-		document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
+        document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];    
+		 if(startPractice.length == 0){
+             document.getElementById("remainingQuestion").innerHTML = "All done!"; 
+             
+         }//end of if
+            else{
+                document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
+         }//end of else
 		document.getElementById("answerInput").value = " ";
 		}//end of else
 	document.getElementById("answerInput").focus();
+   
 }//end of practiceEnterAnswer method
 
 function keyCode(event) {
@@ -287,16 +269,23 @@ function keyCode(event) {
 	}//end of if now else
 	else{
 		//alert("You got it right!");
-		
-		document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
+       
 		document.getElementById("confirmation").innerHTML =
 		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
 		startPractice.shift();
-		document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
+         
+		 if(startPractice.length == 0){
+             document.getElementById("remainingQuestion").innerHTML = "All done!"; 
+             
+         }//end of if
+            else{
+                document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length+ " question(s) remaining";
+         }//end of else
+        document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];    
 		document.getElementById("answerInput").value = " ";
 		}//end of else
     }//end if 
-}//keyCode
+}//end of keyCode
 
 $(document).ready(function(){
 		var p = "practiceMath";
