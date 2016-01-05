@@ -298,7 +298,19 @@ function keyCode(event) {
     }//end if 
 }//keyCode
 
+$(document).ready(function(){
+		var p = "practiceMath";
+            $('.'+ p).hide(); // not working
+			//$('.timeTableDrills').hide(); // not working
+});
 
-
+function show_div(id){
+	var divElement = document.getElementById(id);
+	var p = "practiceMath";
+            $('.'+ p).hide(); 
+		divElement.style.display = 'block';
+	
+	
+}//end of hide div
 
 
