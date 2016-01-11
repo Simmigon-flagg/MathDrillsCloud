@@ -1,3 +1,9 @@
+function keyCode(event) {
+    var x = event.keyCode;
+    if (x == 13) {
+        alert("Works");
+    }
+}//end of keyCode
 function TestMathDrills(){
 		function makeArray(){
 		//alert(numberOfQuestions);

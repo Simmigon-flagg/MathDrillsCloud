@@ -43,30 +43,30 @@
 							<div class = "row">
 									
                                     <div class = "col-md-4">
-                                        <a href="#"><input class="btn btn-primary btn-lg" type="button" value="Addition" onclick="show_div('');" ></a>
+                                        <a href="#setupAddition"><input class="btn btn-primary btn-lg" type="button" value="Addition" onclick="show_div('practiceAddition');" ></a>
                                         <p>some Text</p>
 									</div>
                                     <div class = "col-md-8">
-                                        <a href="#"><input class="btn btn-primary btn-lg" type="button" value="Subtraction" onclick="show_div('');" ></a>
+                                        <a href="#setupSubtraction"><input class="btn btn-primary btn-lg" type="button" value="Subtraction" onclick="show_div('practiceSubtraction');" ></a>
                                         <p>some Text</p>
 									</div>
                                        
 								</div>
                             <div class = "row">                                 
                                     <div class = "col-md-4">
-                                        <a href="#setupTimesTables"><input class="btn btn-primary btn-lg" type="button" value="Multiplication" onclick="show_div('timeTableDrills');" ></a>
+                                        <a href="#setupMultiplication"><input class="btn btn-primary btn-lg" type="button" value="Multiplication" onclick="show_div('practiceMultiplication');" ></a>
                                         <p>some Text</p>
 									</div>
                                     <div class = "col-md-8">
-										<a href="#">
-                                            <input class="btn btn-primary btn-lg" type="button" value="Division" onclick="show_div('');" ></a>
+										<a href="#setupDivision">
+                                            <input class="btn btn-primary btn-lg" type="button" value="Division" onclick="show_div('practiceDivision');" ></a>
                                         <p>some Text</p>
 									</div>
 								</div>
                              <div class = "row">                                 
                                     <div class = "col-md-10">
                                         <a href="#setupAll">
-                                            <input class="btn btn-primary btn-lg" type="button" value="All Math" onclick="show_div('practiceAllMath');" ></a>
+                                            <input class="btn btn-primary btn-lg" type="button" value="All Math" onclick="show_div('practiceAllMath'); " ></a>
                                         <p>some Text</p>
 									</div>
 				            </div>
@@ -75,119 +75,309 @@
 				</div>
 			</div>	
 		</div>
+        <!-- Eveything else will appear below the jumbotron-->
+        <div id = "setupAddition" class = "container">
+			<div class = "text-center">
+				<div class = "practiceMath" id="practiceAddition">
+                    <div class="container">
+                        <h2>How many addition questions?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='5' checked="checked" >5</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='10'>10</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='15'>15</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='20'>20</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='25'>25</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='30'>30</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='35'>35</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='40'>40</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='45'>45</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioAddition" value='50'>50</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>	
+                    </div>	
+                    <div class="container">
+                        <h2>Chose the place values?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='1' checked="checked">1 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='2'>11 + 11</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='3'>111 + 111</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='4'>Any place values</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='5'>11 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='6'>111 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueAddition" value='7'>111 + 11</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>
+                    </div>
+                    <!-- Do I need to add different buttons for every type of practice problem-->
+                    <div class="container">
+                        
+                        <input id="addingAnswer" class="btn btn-success btn-block" type="button" value="Start adding!" onclick="practice('setupAddition','radioAddition','placeValueAddition');" autofocus="autofocus">
+                        <h5 id="remainingAdditionQuestion">some</h5>
+                        <h3 id="displayAdditionQuestion"></h3>
+                        <h2 id="additionQuestions">question</h2>	
+                        <input class="form-control" id="answerInputAddition" type="text" onkeydown="Addition()">													
+                        <input class="btn btn-primary btn-block" type="button" name="enterAddition" value="Enter" onclick="practiceEnterAnswer('addingAnswer','confirmationAddition','remainingAdditionQuestion','additionQuestions');" >
+                        <h2 id="confirmationAddition"></h2>   
+                    </div>     
+				</div>
+			</div>
+		</div>
+        <div id = "setupSubtraction" class = "container">
+			<div class = "text-center">
+				<div class = "practiceMath" id="practiceSubtraction">
+                    <div class="container">
+                        <h2>How many subtraction questions?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='5' checked="checked" >5</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='10'>10</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='15'>15</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='20'>20</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='25'>25</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='30'>30</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='35'>35</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='40'>40</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='45'>45</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioSubtraction" value='50'>50</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>	
+                    </div>	
+                    <div class="container">
+                        <h2>Chose the place values?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='1' checked="checked">1 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='2'>11 + 11</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='3'>111 + 111</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='4'>Any place values</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='5'>11 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='6'>111 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueSubtraction" value='7'>111 + 11</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>
+                    </div>
+                    <!-- Do I need to add different buttons for every type of practice problem-->
+                    <div class="container">
+                        <input class="btn btn-success btn-block" type="button" value="Start subtracting!" onclick=" practice('setupSubtraction','radioSubtraction','placeValueSubtraction');" autofocus="autofocus">
+                        <h5 id="remainingSubtractionQuestion"></h5>
+                        <h3 id="displaySubtractionQuestion"></h3>
+                        <h2 id="subtractionQuestions"></h2>	
+                        <input class="form-control" id="answerInputSubtraction" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
+                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterSubtractionAnswer()" >
+                        <h2 id="confirmationSubtraction"></h2>   
+                    </div>     
+				</div>
+			</div>
+		</div>
+        <div id = "setupMultiplication" class = "container">
+			<div class = "text-center">
+				<div class = "practiceMath" id="practiceMultiplication">
+                    <div class="container">
+                        <h2>How many multiplication questions?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='5' checked="checked" >5</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='10'>10</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='15'>15</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='20'>20</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='25'>25</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='30'>30</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='35'>35</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='40'>40</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='45'>45</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioMultiplication" value='50'>50</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>	
+                    </div>	
+                    <div class="container">
+                        <h2>Chose the place values?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='1' checked="checked">1 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='2'>11 + 11</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='3'>111 + 111</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='4'>Any place values</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='5'>11 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='6'>111 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueMultiplication" value='7'>111 + 11</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>
+                    </div>
+                    <!-- Do I need to add different buttons for every type of practice problem-->
+                    <div class="container">
+                        <input class="btn btn-success btn-block" type="button" value="Start Multiplicating!" onclick=" practice('setupMultiplication','radioMultiplication','placeValueMultiplication');" autofocus="autofocus">
+                        <h5 id="remainingMultiplicationQuestion"></h5>
+                        <h3 id="displayMultiplicationQuestion"></h3>
+                        <h2 id="multiplicationQuestions"></h2>	
+                        <input class="form-control" id="answerInputMultiplication" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
+                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterMultiplicationAnswer()" >
+                        <h2 id="confirmationMultiplication"></h2>   
+                    </div>     
+				</div>
+			</div>
+		</div>
+        <div id = "setupDivision" class = "container">
+			<div class = "text-center">
+				<div class = "practiceMath" id="practiceDivision">
+                    <div class="container">
+                        <h2>How many division questions?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='5' checked="checked" >5</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='10'>10</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='15'>15</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='20'>20</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='25'>25</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='30'>30</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='35'>35</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='40'>40</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='45'>45</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="radioDivision" value='50'>50</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>	
+                    </div>	
+                    <div class="container" class = "practiceMath">
+                        <h2>Chose the place values?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='1' checked="checked">1 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='2'>11 + 11</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='3'>111 + 111</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='4'>Any place values</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='5'>11 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='6'>111 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueDivision" value='7'>111 + 11</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>
+                    </div>
+                    <!-- Do I need to add different buttons for every type of practice problem-->
+                    <div class="container" class = "practiceMath">
+                        <input class="btn btn-success btn-block" type="button" value="Start Dividing!"  onclick="practice('setupDivision','radioDivision','placeValueDivision');" autofocus="autofocus">
+                        <h5 id="remainingDivisionQuestion"></h5>
+                        <h3 id="displayDivisionQuestion"></h3>
+                        <h2 id="divisionQuestions"></h2>	
+                        <input class="form-control" id="answerInputDivision" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
+                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterDivisionAnswer()" >
+                        <h2 id="confirmationDivision"></h2>   
+                    </div>     
+				</div>
+			</div>
+		</div>
 		<div id = "setupAll" class = "container">
 			<div class = "text-center">
 				<div class = "practiceMath" id="practiceAllMath">
-						<h2 >Choose the type of question?</h2>
-                            <div class="container">
-                                <div class="table-responsive">          
-                                  <table class="table table-bordered table-condensed ">
-                                    <tbody >
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Addition' checked="checked">Addition</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Subtraction'>Subtraction</label></td>
-                                      </tr>
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Multiplication'>Multiplication</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="mathTypemoptRadio" value='Division'>Division</label></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                 </div>	
-                            </div>
-						<h2>How many questions?</h2>
-						
-							<div class="container">
-                                <div class="table-responsive">          
-                                  <table class="table table-bordered table-condensed ">
-                                    <tbody >
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='5' checked="checked" >5</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='10'>10</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='15'>15</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='20'>20</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='25'>25</label></td>
-                                      </tr>
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='30'>30</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='35'>35</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='40'>40</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='45'>45</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='50'>50</label></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                 </div>	
-							</div>
-							<h2>Chose the place values?</h2>
-							<div class="container">
-                                <div class="table-responsive">          
-                                  <table class="table table-bordered table-condensed ">
-                                    <tbody >
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='1' checked="checked">1 + 1</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='2'>11 + 11</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='3'>111 + 111</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='4'>Any place values</label></td>
-                                      </tr>
-                                      <tr>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='5'>11 + 1</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='6'>111 + 1</label></td>
-                                        <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='7'>111 + 11</label></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                 </div>		
-                                <h5 id="theArrayOfQuestion"></h5>
-						        <input class="btn btn-success btn-block" type="button" value="Start!" onclick="MathDrills()" autofocus="autofocus">
-							
-							<h5 id="remainingQuestion"></h5>
-							<h3 id="displayQuestion"></h3>
-							<h2 id="Questions"></h2>	
-							<input class="form-control" id="answerInput" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
-							<input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer()" >
-							<h2 id="confirmation"></h2>
-						    </div>
-					</div>
-					<!-- Times table-->
-					<div  class = "practiceMath" id ="timeTableDrills">	
-                        <h2 id = "setupTimesTables">Times Tables</h2>
-							<div class="table-responsive">          
-							  <table class="table table-bordered table-condensed ">
-								<tbody >
-								  <tr>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='0'>0</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='1' checked="checked">1</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='2'>2</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='3'>3</label></td>
-								  </tr>
-								  <tr>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='4'>4</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='5'>5</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='6'>6</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='7'>7</label></td>									
-								  </tr>
-								   <tr>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='8'>8</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='9'>9</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='10'>10</label></td>
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='11'>11</label></td>									
-									<td align="left"><label class="radio-inline"><input type="radio" name="timetables" value='12'>12</label></td>									
-								  </tr>
-								</tbody>
-							  </table>
-							 </div>	
-                        
-						<input class="btn btn-success btn-block" type="button" value="Start!" onclick="" autofocus="autofocus">
-						<h5 id="theArrayOfQuestion"></h5>
-					</div>
+                    <div class="container" >
+                        <h2>How many questions?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='5' checked="checked" >5</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='10'>10</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='15'>15</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='20'>20</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='25'>25</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='30'>30</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='35'>35</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='40'>40</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='45'>45</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="numberOfQuestionsOptRadio" value='50'>50</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>	
+                    </div>	
+                    <div class="container" >
+                        <h2>Chose the place values?</h2>
+                        <div class="table-responsive">          
+                          <table class="table table-bordered table-condensed ">
+                            <tbody >
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='1' checked="checked">1 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='2'>11 + 11</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='3'>111 + 111</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='4'>Any place values</label></td>
+                              </tr>
+                              <tr>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='5'>11 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='6'>111 + 1</label></td>
+                                <td align="left"><label class="radio-inline"><input type="radio" name="placeValueOptRadio" value='7'>111 + 11</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                         </div>
+                    </div>
+                    <!-- Do I need to add different buttons for every type of practice problem-->
+                    <div class="container" >
+                        <h5 id="theArrayOfQuestion"></h5>
+                        <input class="btn btn-success btn-block" type="button" value="Start Random all!"onclick="practice('setupAll','numberOfQuestionsOptRadio','placeValueOptRadio');" autofocus="autofocus">
+                        <h5 id="remainingQuestion"></h5>
+                        <h3 id="displayQuestion"></h3>
+                        <h2 id="Questions"></h2>	
+                        <input class="form-control" id="answerInput" type="text" onkeydown="keyCode(event)">
+                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer()" >
+                        <h2 id="confirmation"></h2>   
+                    </div>     
+				</div>
 			</div>
 		</div>
 
-		<div class = "navbar navbar-default navbar-fixed-bottom">
+		<div class = "navbar navbar-default navbar-static-bottom">
 			<div class = "container">
 				<p class = "navbar-text pull-left">Math Drills</p>
-                 <a href="#top" title = "The top of the page" class="navbar-btn btn-warning btn pull-right" type="button">MATH Drill Questions</a>
+                 <a href="#top" title = "The top of the page" class="navbar-btn btn-warning btn pull-right" type="button" onclick="hideAll();">MATH Drills To Top</a>
 			</div>
            
 		</div>

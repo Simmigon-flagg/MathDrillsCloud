@@ -1,3 +1,4 @@
+
 //One Click does all the non indented work
 //Choose type of math problem *
 //Choose number of numberOfQuestions *
@@ -20,278 +21,185 @@ var myArray = [];
 var answer;
 var questionsRemaining;
 var placeValue;
-function MathDrills() {
-	document.getElementById("answerInput").focus();
-	 type = document.getElementsByName("mathTypemoptRadio");
-	var numberOfQuestions = document.getElementsByName("numberOfQuestionsOptRadio");
-	 placeValue = document.getElementsByName("placeValueOptRadio");
+var numb;
+
+hideAll();
+
+function practice(name,numb,placeValue){
 	
-	 for(var i = 0; i < type.length; i++) {
-	   if(type[i].checked) {
-		  type =  type[i].value;//This line overwrites the global var
-			
-	   }//end of if
-	 }//end of typeloop
-	 for(var i = 0; i < numberOfQuestions.length; i++) {
-	   if(numberOfQuestions[i].checked) {
-		  numberOfQuestions =  parseInt(numberOfQuestions[i].value);//This line overwrites the global var
-			
+	numb = document.getElementsByName(numb);
+	placeValue = document.getElementsByName(placeValue);
+		
+		for(var i = 0; i < numb.length; i++) {
+	   if(numb[i].checked) {
+		  numb =  parseInt(numb[i].value);//This line overwrites the global var
+			break;
 	   }//end of if
 	 }//end of questionloop
-	 for(var i = 0; i < placeValue.length; i++) {
-	   if(placeValue[i].checked) {
-		  placeValue =  placeValue[i].value;//This line overwrites the global var
-			
-	  }//end of if
-	 }//end of pvalueloop
-	//confirm(type);
-	//confirm(numberOfQuestions);
-	//confirm(placeValue);
 	
-	function makeArray(){
-		//alert(numberOfQuestions);
-	     myArray = new Array(numberOfQuestions);
+	 myArray = new Array(numb);
 	    for(var i = 0; i < myArray.length; i++){
 		myArray[i] = new Array(4);
     	}
-    	return myArray;
-	}
 	
-	 function loadQuestionAndAnswers(){
-	    myArray = makeArray();
-		//alert(myArray);
+	 for(var i = 0; i < placeValue.length; i++) {
+	   if(placeValue[i].checked) {
+		  placeValue =  placeValue[i].value;//This line overwrites the global var
+		 
+		break;
+	  }//end of if
+	 }//end of pvalueloop
+	
 	for(var i = 0; i < myArray.length;i++){
-		for(var j = 0; j < myArray[0].length ; j++){
-			if(j != 3 ){	
+		var all = name;
+		if(name == "setupAll"){
+		var choice = Math.floor((Math.random() * 4) + 1);
+			if(choice == 1){
+				name = "setupAddition";
+			}else if(choice == 2){
+				name = "setupSubtraction";
+			}
+			else if(choice == 3){
+				name = "setupMultiplication";
+			}else{
+				name = "setupDivision";
+		    }
+		
+		}
+		
+		for(var j = 0; j < myArray[0].length; j++){
+			if(j != 3 ){
 				if(j == 1){
-					switch(type){
-						case "Addition":
-						myArray[i][1] = "+";
-					    continue;
-						case "Multiplication":
-						myArray[i][1] = "*";
-					    continue;
-						case "Subtraction":
-						myArray[i][1] = "-";
-					    continue;
-						case "Division":
-						myArray[i][1] = "/";
-					    continue;
-						default:
-							alert("Oops invalid choice!");
-					}//end of switch
-					   
-				}//end of if
-				switch(placeValue) {
-					case "1":
-					   //. 1 + 1
-                       myArray[i][j] = Math.floor(Math.random()*10);
-                    break;
-					case "2":
-						//. 11 + 11
-                        myArray[i][j] =  Math.floor((Math.random()*90) + 10);
-                    break;
-					case "3":
-						//. 111 + 111
-                       myArray[i][j] =  Math.floor((Math.random()*900) + 100);
-                    break;
-					case "4":
-						//. Mix all place values
-                       myArray[i][j] =  Math.floor(Math.random()*1000);
-                    break;
-					case "5":
-						//. Mix only 1 and 2
-                       myArray[i][j] =  Math.floor(Math.random()*100);
-                    break;
-					case "6":
-						//. Mix only 1 and 3
-						 myArray[i][j] = Math.floor(Math.random()*1000);
-						while(myArray[i][j] >= 10 && myArray[i][j] <= 100 ){
-							if(myArray[i][j] < 100){
+					if(name == "setupAddition"){
+						myArray[i][1] = " + ";
+						continue;
+					}else if(name == "setupSubtraction"){
+						myArray[i][1] = " - ";
+						continue;
+					}else if(name == "setupMultiplication"){
+						myArray[i][1] = " * ";
+						continue;
+					}else if(name == "setupDivision"){
+						myArray[i][1] = " / ";
+						continue;
+					}else{
+						
+					}	
+				}//end of else to preform math
+				if(placeValue == "1"){
+						myArray[i][j] = Math.floor(Math.random()*10);
+					}else if(placeValue == "2"){
+						myArray[i][j] =  Math.floor((Math.random()*90) + 10);
+					}else if(placeValue == "3"){
+						myArray[i][j] =  Math.floor((Math.random()*900) + 100);
+					}else if(placeValue == "4"){
+						myArray[i][j] =  Math.floor(Math.random()*1000);
+					}else if(placeValue == "5"){
+							if(j == 0){
+								myArray[i][j] =  Math.floor((Math.random()*90) + 10);
+							}else{
 								myArray[i][j] = Math.floor(Math.random()*10);
+							}
+					}else if(placeValue == "6"){
+							if(j == 0){
+								myArray[i][j] =  Math.floor((Math.random()*900) + 100);
 							}else{
-									myArray[i][j] = Math.floor(Math.random()*1000);
-							}//end of else
-							
-						}//end of while loop
-                    break;
-					case "7":
-						//. Mix only 2 and 3
-                        myArray[i][j] = Math.floor(Math.random()*1000);
-						while(myArray[i][j] <= 10 ){
-							if(myArray[i][j] <= 10){
-								myArray[i][j] = Math.floor(Math.random()*100);
+								myArray[i][j] = Math.floor(Math.random()*10);
+							}
+					}else{
+							if(j == 0){
+								myArray[i][j] =  Math.floor((Math.random()*900) + 100);
 							}else{
-								myArray[i][j] = Math.floor(Math.random()*1000);
-							}//end of else
-						}//end of while loop
-                    break;
-				}//end of swtich
-					
-			}//end of if
-			else{
-				
-				switch(type) {
-                case "Addition":
-                       myArray[i][3] = myArray[i][2] + myArray[i][0];
-					   
-                    break;
-                case "Multiplication":                     
-					 myArray[i][3] = myArray[i][2] * myArray[i][0];
-                    break;
-                case "Subtraction":
-				//needs to be updated
-                if(myArray[i][2] > myArray[i][0] ){
-                    var temp = myArray[i][2];
-                    myArray[i][2] = myArray[i][0];
-                    myArray[i][0] = temp;
-                }//end of if in sub
-                    myArray[i][3] = myArray[i][2] - myArray[i][0];
-                    break;
-                case "Division":
-					while(myArray[i][0] % myArray[i][2] !== 0){
-						switch(placeValue) {
-							case "1":
-							   //. 1 + 1
-							   myArray[i][0] = Math.floor(Math.random()*10);
-							   myArray[i][2] = Math.floor(Math.random()*10);
-							break;
-							case "2":
-								//. 11 + 11
-							   
-							    myArray[i][0] =  Math.floor((Math.random()*90) + 10);
+								myArray[i][j] =  Math.floor((Math.random()*90) + 10);
+							}
+					}
+			}else{
+			if(name == "setupAddition"){
+						myArray[i][3] = myArray[i][0] + myArray[i][2];
+						if(all == "setupAll"){
+							name = all;
+						}
+					}else if(name == "setupSubtraction"){
+							if(myArray[i][2] > myArray[i][0] ){
+								var temp = myArray[i][2];
+								myArray[i][2] = myArray[i][0];
+								myArray[i][0] = temp;
+							}//end of if in sub
+						myArray[i][3] = myArray[i][0] - myArray[i][2];
+						if(all == "setupAll"){
+							name = all;
+						}
+					}else if(name == "setupMultiplication"){
+						myArray[i][3] = myArray[i][0] * myArray[i][2];
+						if(all == "setupAll"){
+							name = all;
+						}
+					}else if(name == "setupDivision"){
+					//	alert("The remainder is "+(myArray[i][0] % myArray[i][2]));
+					//	alert("The second number is " + myArray[i][2]);
+						while((myArray[i][0] % myArray[i][2]) !== 0 || (myArray[i][2] === 0 )){
+							if(placeValue == "1"){
+								myArray[i][2] = Math.floor((Math.random()*10)+ 1);
+							}else if(placeValue == "2"){
 								myArray[i][2] =  Math.floor((Math.random()*90) + 10);
-							break;
-							case "3":
-								//. 111 + 111						
-							    myArray[i][0] =  Math.floor((Math.random()*900) + 100);
+							}else if(placeValue == "3"){
 								myArray[i][2] =  Math.floor((Math.random()*900) + 100);
-							break;
-							case "4":
-								//. Mix all place values
-							    myArray[i][0] =  Math.floor(Math.random()*1000);
-								myArray[i][2] =  Math.floor(Math.random()*1000);
-							   
-							break;
-							case "5":
-								//. Mix only 1 and 2
-								myArray[i][0] =  Math.floor(Math.random()*100);
-								myArray[i][2] =  Math.floor(Math.random()*100);							  
-							break;
-							case "6":
-								//. Mix only 1 and 3
-								 myArray[i][0] = Math.floor(Math.random()*1000);
-								 myArray[i][2] = Math.floor(Math.random()*1000);
-								while(myArray[i][0] >= 10 && myArray[i][0] <= 100 || myArray[i][2] >= 10 && myArray[i][2] <= 100){
-									if(myArray[i][0] < 100 || myArray[i][2] < 100  ){
-										myArray[i][0] = Math.floor(Math.random()*10);
-										myArray[i][2] = Math.floor(Math.random()*10);
-									}else{
-										myArray[i][0] = Math.floor(Math.random()*1000);
-										myArray[i][2] = Math.floor(Math.random()*1000);
-									}//end of else	
-								}//end of while loop
-					
-							break;
-							case "7":
-								//. Mix only 2 and 3
-								myArray[i][0] = Math.floor(Math.random()*1000);
-								myArray[i][2] = Math.floor(Math.random()*1000);
-						while(myArray[i][0] <= 10 || myArray[i][2] <= 10){
-							if(myArray[i][0] <= 10 || myArray[i][2] <= 10){
-								myArray[i][0] = Math.floor(Math.random()*100);
-								myArray[i][2] = Math.floor(Math.random()*100);
-							}else{
-								myArray[i][0] = Math.floor(Math.random()*1000);
-								myArray[i][2] = Math.floor(Math.random()*1000);
-							}//end of else
+							}else if(placeValue == "4"){
+								myArray[i][2] =  Math.floor((Math.random()*1000) + 1);
+							}else if(placeValue == "5"){
+								myArray[i][2] = Math.floor((Math.random()*10) + 1);
+							}else if(placeValue == "6"){
+								myArray[i][2] = Math.floor((Math.random()*10) + 1);
+							}else {
+								//increae number until you find an evenly divisable digit
+								while((myArray[i][0] % myArray[i][2] ) !== 0 ){
+											myArray[i][2]++;
+									}
+							}
 						}//end of while loop
-								
-							break;
-						}//end of swtich
-                    }//end of while loop
-                    myArray[i][3] = myArray[i][0] / myArray[i][2];
-					break;
-                default:
-					alert("Oops invalid choice!");
-               }//end of switch		
-			}//end of else to preform math
-		}//end of inner loop
-	}//end of outer loop
-	return myArray;
-	}//loadQuestionAndAnswers
- startPractice =  loadQuestionAndAnswers();
- document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
- document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];
-}// end of class MathDrills
+						myArray[i][3] = myArray[i][0] / myArray[i][2];
+						if(all == "setupAll"){
+							name = all;
+						}
+					}else{
+						
+					}
+				}
+			}//end of the inner for loop
+		}//end of the for outer loop
+	alert(myArray);
+	if(name == "setupAddition"){
+		document.getElementById("remainingAdditionQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
+		document.getElementById("additionQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
+	}else if(name == "setupSubtraction"){
+		document.getElementById("remainingSubtractionQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
+		document.getElementById("subtractionQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
+	}else if(name == "setupMultiplication"){
+		document.getElementById("remainingMultiplicationQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
+		document.getElementById("multiplicationQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
+	}else if(name == "setupDivision"){
+		document.getElementById("remainingDivisionQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
+		document.getElementById("displayDivisionQuestion").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
 
-function practiceEnterAnswer(){
-
-        answer = parseInt(document.getElementById("answerInput").value);
-	
-	if(answer != myArray[0][3]){
+	}else{
+		document.getElementById("remainingQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
+		document.getElementById("displayQuestion").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];				
+	}	
 		
-		document.getElementById("answerInput").value = " ";
-		document.getElementById("confirmation").innerHTML =
-		"You got it wrong! Try again";
-	}//end of if now else
-	else{
-		//alert("You got it right!");
-		
-		document.getElementById("confirmation").innerHTML =
-		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
-		startPractice.shift();
-        document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];    
-		 if(startPractice.length == 0){
-             document.getElementById("remainingQuestion").innerHTML = "All done!"; 
-             
-         }//end of if
-            else{
-                document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length + " question(s) remaining";
-         }//end of else
-		document.getElementById("answerInput").value = " ";
-		}//end of else
-	document.getElementById("answerInput").focus();
-   
-}//end of practiceEnterAnswer method
+}
 
-function keyCode(event) {
-    var x = event.keyCode;
-    if (x == 13) {
-        answer = parseInt(document.getElementById("answerInput").value);
-	document.getElementById("answerInput").focus();
-	
-	if(answer != myArray[0][3]){
-		
-		document.getElementById("answerInput").value = " ";
-		document.getElementById("confirmation").innerHTML =
-		"You got it wrong! Try again";
-	}//end of if now else
-	else{
-		//alert("You got it right!");
-       
-		document.getElementById("confirmation").innerHTML =
-		"Correct! " + startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2] +" = "+ startPractice[0][3];
-		startPractice.shift();
-         
-		 if(startPractice.length == 0){
-             document.getElementById("remainingQuestion").innerHTML = "All done!"; 
-             
-         }//end of if
-            else{
-                document.getElementById("remainingQuestion").innerHTML = "You have "+ startPractice.length+ " question(s) remaining";
-         }//end of else
-        document.getElementById("Questions").innerHTML = startPractice[0][0] +" "+ startPractice[0][1] +" "+ startPractice[0][2];    
-		document.getElementById("answerInput").value = " ";
-		}//end of else
-    }//end if 
-}//end of keyCode
 
-$(document).ready(function(){
+
+function hideAll(){
+	$(document).ready(function(){
 		var p = "practiceMath";
             $('.'+ p).hide(); // not working
+
 			//$('.timeTableDrills').hide(); // not working
 });
+	
+}//end of hide div
+
 
 function show_div(id){
 	var divElement = document.getElementById(id);
