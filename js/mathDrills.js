@@ -18,7 +18,6 @@
 var startPractice;
 var type;
 var myArray = [];
-var answer;
 var questionsRemaining;
 var placeValue;
 var numb;
@@ -167,7 +166,7 @@ function practice(name,numb,placeValue){
 				}
 			}//end of the inner for loop
 		}//end of the for outer loop
-	alert(myArray);
+	
 	if(name == "setupAddition"){
 		document.getElementById("remainingAdditionQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
 		document.getElementById("additionQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
@@ -179,17 +178,65 @@ function practice(name,numb,placeValue){
 		document.getElementById("multiplicationQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
 	}else if(name == "setupDivision"){
 		document.getElementById("remainingDivisionQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
-		document.getElementById("displayDivisionQuestion").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
+		document.getElementById("divisionQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
 
 	}else{
 		document.getElementById("remainingQuestion").innerHTML = "You have "+ myArray.length + " question(s) remaining";
-		document.getElementById("displayQuestion").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];				
+		document.getElementById("allQuestions").innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];				
 	}	
 		
 }
 
-
-
+function practiceEnterAnswer(answer,confirmation,remainingQuestion,questions){
+        theAnswer = parseInt(document.getElementById(answer).value);
+        document.getElementById(answer).value = "";
+	    document.getElementById(answer).focus();
+	if(theAnswer != myArray[0][3]){
+		document.getElementById(confirmation).innerHTML =
+		"You got it wrong! Try again";
+	}//end of if now else
+	else{
+		//alert("You got it right!");
+       
+		document.getElementById(confirmation).innerHTML =
+		"Correct! " + myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2] +" = "+ myArray[0][3];
+		myArray.shift();
+         
+		 if(myArray.length == 0){
+             document.getElementById(remainingQuestion).innerHTML = "All done!"; 
+             
+         }//end of if
+            else{
+                document.getElementById(remainingQuestion).innerHTML = "You have "+ myArray.length+ " question(s) remaining";
+         }//end of else
+        document.getElementById(questions).innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];    
+		  
+		}//end of else
+}//end of practiceEnterAnswer method
+function keyPressed(answer,confirmation,remainingQuestion,questions){
+		var x = event.keyCode;
+	if (x == 13) {
+        theAnswer = parseInt(document.getElementById(answer).value);
+        document.getElementById(answer).value = "";
+	    document.getElementById(answer).focus();
+	if(theAnswer != myArray[0][3]){
+		document.getElementById(confirmation).innerHTML =
+		"You got it wrong! Try again";
+	}//end of if now else
+	else{      
+		document.getElementById(confirmation).innerHTML =
+		"Correct! " + myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2] +" = "+ myArray[0][3];
+		myArray.shift();         
+		 if(myArray.length == 0){
+             document.getElementById(remainingQuestion).innerHTML = "All done!";    
+         }//end of if
+            else{
+                document.getElementById(remainingQuestion).innerHTML = "You have "+ myArray.length+ " question(s) remaining";
+         }//end of else
+        document.getElementById(questions).innerHTML = myArray[0][0] +" "+ myArray[0][1] +" "+ myArray[0][2];
+		}//end of else
+	}//end if 
+}//end of practiceEnterAnswer method
 function hideAll(){
 	$(document).ready(function(){
 		var p = "practiceMath";
@@ -210,4 +257,24 @@ function show_div(id){
 	
 }//end of hide div
 
+function clearAllText(){
+		document.getElementById("remainingAdditionQuestion").innerHTML = "";
+		document.getElementById("additionQuestions").innerHTML = "";
+		document.getElementById("confirmationAddition").innerHTML = "";
+	
+		document.getElementById("remainingSubtractionQuestion").innerHTML = "";
+		document.getElementById("subtractionQuestions").innerHTML = "";
+		document.getElementById("confirmationSubtraction").innerHTML = "";
+	
+		document.getElementById("remainingMultiplicationQuestion").innerHTML = "";
+		document.getElementById("multiplicationQuestions").innerHTML = "";
+		document.getElementById("confirmationMultiplication").innerHTML = "";
+	
+		document.getElementById("remainingDivisionQuestion").innerHTML = "";
+		document.getElementById("divisionQuestions").innerHTML = "";
+		document.getElementById("confirmationDivision").innerHTML = "";
 
+		document.getElementById("remainingQuestion").innerHTML = "";
+		document.getElementById("allQuestions").innerHTML = "";		
+		document.getElementById("allConfirmation").innerHTML = "";				
+}

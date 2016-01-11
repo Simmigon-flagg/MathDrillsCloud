@@ -36,6 +36,7 @@
 		<!-- Question -->
 		<div class = "container">
 			<div class = "jumbotron" >
+				<p >Here you can practice random questions. Click on the type of question you want to practice to get started!</p>
 				<div class = "text-center">
 					<!-- What to practice -->
 					<div class="btn-group" class="btn">
@@ -44,30 +45,30 @@
 									
                                     <div class = "col-md-4">
                                         <a href="#setupAddition"><input class="btn btn-primary btn-lg" type="button" value="Addition" onclick="show_div('practiceAddition');" ></a>
-                                        <p>some Text</p>
+                                        <p>Random Addition Questions</p>
 									</div>
                                     <div class = "col-md-8">
                                         <a href="#setupSubtraction"><input class="btn btn-primary btn-lg" type="button" value="Subtraction" onclick="show_div('practiceSubtraction');" ></a>
-                                        <p>some Text</p>
+                                        <p>Random Subtraction Questions</p>
 									</div>
                                        
 								</div>
                             <div class = "row">                                 
                                     <div class = "col-md-4">
                                         <a href="#setupMultiplication"><input class="btn btn-primary btn-lg" type="button" value="Multiplication" onclick="show_div('practiceMultiplication');" ></a>
-                                        <p>some Text</p>
+                                        <p>Random Multiplication Questions</p>
 									</div>
                                     <div class = "col-md-8">
 										<a href="#setupDivision">
                                             <input class="btn btn-primary btn-lg" type="button" value="Division" onclick="show_div('practiceDivision');" ></a>
-                                        <p>some Text</p>
+                                        <p>Random Division Questions</p>
 									</div>
 								</div>
                              <div class = "row">                                 
                                     <div class = "col-md-10">
                                         <a href="#setupAll">
                                             <input class="btn btn-primary btn-lg" type="button" value="All Math" onclick="show_div('practiceAllMath'); " ></a>
-                                        <p>some Text</p>
+                                        <p>All Random Questions</p>
 									</div>
 				            </div>
 						</div>
@@ -124,14 +125,15 @@
                     </div>
                     <!-- Do I need to add different buttons for every type of practice problem-->
                     <div class="container">
-                        
-                        <input id="addingAnswer" class="btn btn-success btn-block" type="button" value="Start adding!" onclick="practice('setupAddition','radioAddition','placeValueAddition');" autofocus="autofocus">
-                        <h5 id="remainingAdditionQuestion">some</h5>
-                        <h3 id="displayAdditionQuestion"></h3>
-                        <h2 id="additionQuestions">question</h2>	
-                        <input class="form-control" id="answerInputAddition" type="text" onkeydown="Addition()">													
-                        <input class="btn btn-primary btn-block" type="button" name="enterAddition" value="Enter" onclick="practiceEnterAnswer('addingAnswer','confirmationAddition','remainingAdditionQuestion','additionQuestions');" >
-                        <h2 id="confirmationAddition"></h2>   
+                        <div class="randomSection">
+							<input  class="btn btn-success btn-block" type="button" value="Start adding!" onclick="practice('setupAddition','radioAddition','placeValueAddition');" autofocus="autofocus">
+							<h5 id="remainingAdditionQuestion"></h5>
+							<h3 id="displayAdditionQuestion"></h3>
+							<h2 id="additionQuestions"></h2>	
+							<input class="form-control" id="addingAnswer" type="text" onkeydown="keyPressed('addingAnswer','confirmationAddition','remainingAdditionQuestion','additionQuestions')">	
+							<h2 id="confirmationAddition"></h2> 						
+							<input class="btn btn-primary btn-block" type="button" name="enterAddition" value="Enter" onclick="practiceEnterAnswer('addingAnswer','confirmationAddition','remainingAdditionQuestion','additionQuestions');" >
+                        </div>
                     </div>     
 				</div>
 			</div>
@@ -184,13 +186,15 @@
                     </div>
                     <!-- Do I need to add different buttons for every type of practice problem-->
                     <div class="container">
-                        <input class="btn btn-success btn-block" type="button" value="Start subtracting!" onclick=" practice('setupSubtraction','radioSubtraction','placeValueSubtraction');" autofocus="autofocus">
-                        <h5 id="remainingSubtractionQuestion"></h5>
-                        <h3 id="displaySubtractionQuestion"></h3>
-                        <h2 id="subtractionQuestions"></h2>	
-                        <input class="form-control" id="answerInputSubtraction" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
-                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterSubtractionAnswer()" >
-                        <h2 id="confirmationSubtraction"></h2>   
+						<div class="randomSection">
+							<input class="btn btn-success btn-block" type="button" value="Start subtracting!" onclick=" practice('setupSubtraction','radioSubtraction','placeValueSubtraction');" autofocus="autofocus">
+							<h5 id="remainingSubtractionQuestion"></h5>
+							<h3 id="displaySubtractionQuestion"></h3>
+							<h2 id="subtractionQuestions"></h2>	
+							<input class="form-control" id="subtractionAnswer" type="text" onkeydown="keyPressed('subtractionAnswer','confirmationSubtraction','remainingSubtractionQuestion','subtractionQuestions');">		
+							<h2 id="confirmationSubtraction"></h2> 
+							<input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer('subtractionAnswer','confirmationSubtraction','remainingSubtractionQuestion','subtractionQuestions');" >
+                        </div>
                     </div>     
 				</div>
 			</div>
@@ -243,13 +247,15 @@
                     </div>
                     <!-- Do I need to add different buttons for every type of practice problem-->
                     <div class="container">
-                        <input class="btn btn-success btn-block" type="button" value="Start Multiplicating!" onclick=" practice('setupMultiplication','radioMultiplication','placeValueMultiplication');" autofocus="autofocus">
-                        <h5 id="remainingMultiplicationQuestion"></h5>
-                        <h3 id="displayMultiplicationQuestion"></h3>
-                        <h2 id="multiplicationQuestions"></h2>	
-                        <input class="form-control" id="answerInputMultiplication" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
-                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterMultiplicationAnswer()" >
-                        <h2 id="confirmationMultiplication"></h2>   
+						<div class="randomSection">
+							<input class="btn btn-success btn-block" type="button" value="Start Multiplicating!" onclick=" practice('setupMultiplication','radioMultiplication','placeValueMultiplication');" autofocus="autofocus">
+							<h5 id="remainingMultiplicationQuestion"></h5>
+							<h3 id="displayMultiplicationQuestion"></h3>
+							<h2 id="multiplicationQuestions"></h2>	
+							<input class="form-control" id="multiplicationAnswer" type="text" onkeydown="keyPressed('multiplicationAnswer','confirmationMultiplication','remainingMultiplicationQuestion','multiplicationQuestions');">
+							<h2 id="confirmationMultiplication"></h2> 
+							<input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer('multiplicationAnswer','confirmationMultiplication','remainingMultiplicationQuestion','multiplicationQuestions');" > 
+						</div>	
                     </div>     
 				</div>
 			</div>
@@ -280,7 +286,7 @@
                           </table>
                          </div>	
                     </div>	
-                    <div class="container" class = "practiceMath">
+                    <div class="container" ><!-- class = "practiceMath"-->
                         <h2>Chose the place values?</h2>
                         <div class="table-responsive">          
                           <table class="table table-bordered table-condensed ">
@@ -302,13 +308,15 @@
                     </div>
                     <!-- Do I need to add different buttons for every type of practice problem-->
                     <div class="container" class = "practiceMath">
-                        <input class="btn btn-success btn-block" type="button" value="Start Dividing!"  onclick="practice('setupDivision','radioDivision','placeValueDivision');" autofocus="autofocus">
-                        <h5 id="remainingDivisionQuestion"></h5>
-                        <h3 id="displayDivisionQuestion"></h3>
-                        <h2 id="divisionQuestions"></h2>	
-                        <input class="form-control" id="answerInputDivision" type="text" onkeydown="keyCode(event)">																		<!--TestMathDrills practiceEnterAnswer-->
-                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterDivisionAnswer()" >
-                        <h2 id="confirmationDivision"></h2>   
+						<div class="randomSection">
+							<input class="btn btn-success btn-block" type="button" value="Start Dividing!"  onclick="practice('setupDivision','radioDivision','placeValueDivision');" autofocus="autofocus">
+							<h5 id="remainingDivisionQuestion"></h5>
+							<h3 id="displayDivisionQuestion"></h3>
+							<h2 id="divisionQuestions"></h2>	
+							<input class="form-control" id="divisionAnswer" type="text" onkeydown="keyPressed('divisionAnswer','confirmationDivision','remainingDivisionQuestion','divisionQuestions');">
+							<h2 id="confirmationDivision"></h2>   
+							<input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer('divisionAnswer','confirmationDivision','remainingDivisionQuestion','divisionQuestions');" >
+                        </div>
                     </div>     
 				</div>
 			</div>
@@ -360,15 +368,14 @@
                          </div>
                     </div>
                     <!-- Do I need to add different buttons for every type of practice problem-->
-                    <div class="container" >
-                        <h5 id="theArrayOfQuestion"></h5>
+                    <div class="container" >               
                         <input class="btn btn-success btn-block" type="button" value="Start Random all!"onclick="practice('setupAll','numberOfQuestionsOptRadio','placeValueOptRadio');" autofocus="autofocus">
                         <h5 id="remainingQuestion"></h5>
                         <h3 id="displayQuestion"></h3>
-                        <h2 id="Questions"></h2>	
-                        <input class="form-control" id="answerInput" type="text" onkeydown="keyCode(event)">
-                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer()" >
-                        <h2 id="confirmation"></h2>   
+                        <h2 id="allQuestions"></h2>	
+                        <input class="form-control" id="allAnswer" type="text" onkeydown="keyPressed('allAnswer','allConfirmation','remainingQuestion','allQuestions');">
+						<h2 id="allConfirmation"></h2>  
+                        <input class="btn btn-primary btn-block" type="button" id="enter" value="Enter" onclick="practiceEnterAnswer('allAnswer','allConfirmation','remainingQuestion','allQuestions');" > 
                     </div>     
 				</div>
 			</div>
@@ -377,7 +384,7 @@
 		<div class = "navbar navbar-default navbar-static-bottom">
 			<div class = "container">
 				<p class = "navbar-text pull-left">Math Drills</p>
-                 <a href="#top" title = "The top of the page" class="navbar-btn btn-warning btn pull-right" type="button" onclick="hideAll();">MATH Drills To Top</a>
+                 <a href="#top" title = "The top of the page" class="navbar-btn btn-warning btn pull-right" type="button" onclick="hideAll(),clearAllText();">MATH Drills To Top</a>
 			</div>
            
 		</div>
