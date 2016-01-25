@@ -1,3 +1,4 @@
+hideAll();
 
 //One Click does all the non indented work
 //Choose type of math problem *
@@ -22,7 +23,6 @@ var questionsRemaining;
 var placeValue;
 var numb;
 
-hideAll();
 
 function practice(name,numb,placeValue){
 	
@@ -76,7 +76,7 @@ function practice(name,numb,placeValue){
 						myArray[i][1] = " - ";
 						continue;
 					}else if(name == "setupMultiplication"){
-						myArray[i][1] = " * ";
+						myArray[i][1] = " x ";
 						continue;
 					}else if(name == "setupDivision"){
 						myArray[i][1] = " / ";
