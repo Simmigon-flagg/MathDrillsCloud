@@ -1,6 +1,7 @@
-
-.navbar-default {
-	background-color: #00FF00;
-	border-color: #FFFFFF;
-	color: #FFFFFF;
+body{
+    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
+.btn {
+   width: 200px;	
+}	
