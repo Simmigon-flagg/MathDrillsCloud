@@ -1,0 +1,24 @@
+javascript:(function(){
+var showAllAnswers=true;
+appConfig.view="solution";
+var results=getProblemConfig({assignmentProblemID:MxData.assignmentProblemID,viewHid​den:true});
+appConfig.view="work";
+for(var i=0;i < results.sections.length;i++){
+var section=results.sections[i];
+var link=document.createElement("span");
+link.className="answer-button enabled";
+link.setAttribute("data-id",section.id);
+link.title="Show Answer";
+link.innerHTML="Show Answer";
+link.addEventListener('click',function(e){document.querySelector("%23part"+this.getAttribute("data-id")+" .show-answer").style.display="block";});
+var answer=document.createElement("div");
+answer.className="show-answer";
+answer.style.padding="10px";
+answer.style.backgroundColor="%23EEF";
+answer.style.border="solid 1px %23CCF";
+if(!showAllAnswers)answer.style.display="none";
+answer.innerHTML="Answer is "+section.showAnswer;
+var node=document.querySelector("%23part"+section.id);
+if(!node)continue;node.appendChild(answer);
+if(!showAllAnswers)node.querySelector(".buttons").appendChild(link);}})();
+
