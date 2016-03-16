@@ -4,4 +4,8 @@ body{
 }
 .btn {
    width: 200px;	
-}	
+}
+#carSlide {
+	height: 450px;
+	width: 1920px;
+}
